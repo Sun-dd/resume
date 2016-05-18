@@ -114,7 +114,7 @@ a{
 }
 
 .nav li a:hover,.nav li a:active,.nav .active a{
-    background-color: rgba(255, 162, 168, 0.48);
+    background-color: #0080c0;
 }
 
 /*背景设置*/
