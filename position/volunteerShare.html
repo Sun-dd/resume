@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta name="format-detection" content="telephone=no" />
+		<script>
+			var html = document.getElementsByTagName('html')[0];
+			html.style.fontSize = html.clientWidth / 3.75 + "px";
+		</script>
+		<title>志愿贡献卡</title>
+		<link rel="stylesheet" type="text/css" href="static/css/Reset.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/tutorShare.css" />
+	</head>
+	<body>
+		<div class="tutorShare_wrap">
+			<header class="tutorShare_header">
+				<div class="vounteer_headPic"><img src="./static/images/headPic.png" alt="" /></div>
+				<div class="vounteer_header_name">
+					<p>山水乐521</p>
+					<ul class="vounteerItem">
+						<li>
+							<p>47</p>
+							<p>全国排名</p>
+						</li>
+						<li>
+							<span></span>
+							<p>4758</p>
+							<p>志愿之心</p>
+							<span class="line"></span>
+						</li>
+						<li>
+							<p>55</p>
+							<p>志愿行动</p>
+						</li>
+					</ul>
+				</div>
+			</header>
+			<div class="tutorShare_contents">
+				<div class="tutorShare_content top3">
+					<div class="like_div mar_t">
+						<div class="like mar_b"></div>
+						<p>请给我点赞</p>
+					</div>
+					<p class="paragraph vounteerWord">消费扶贫，让善意长盛不衰<br>请与我一起</p>
+					<img class="ycEwm" src="./static/images/ycEwm.png" alt="" />
+					<div class="fund">
+						<p>——友成基金会——</p>
+						<p>探索中国公益领域的创新之路</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="libs/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="libs/common.js"></script>
+	<script>
+		$(function() {
+			$(".like").click(function() {
+				$(this).toggleClass("liked");
+				var liked = $(this).hasClass("liked");
+				if(liked) {
+					promptBox("点赞成功！");
+				} else {
+					promptBox("已取消点赞！");
+				}
+			});
+		});
+	</script>
+</html>

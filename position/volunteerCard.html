@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta name="format-detection" content="telephone=no" />
+		<script>
+			var html = document.getElementsByTagName('html')[0];
+			html.style.fontSize = html.clientWidth / 3.75 + "px";
+		</script>
+		<title>志愿贡献卡</title>
+		<link rel="stylesheet" type="text/css" href="static/css/Reset.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/tutorCard.css" />
+	</head>
+	<body>
+		<div class="tutorCard_wrap">
+			<div class="tutorCard_header">
+			</div>
+			<div class="tutorCard_headPic"><img src="./static/images/headPic.png" alt="" /></div>
+			<div class="tutorCard_content">
+				<div class="tutorCard_content_1">
+					<div class="tutorCard_content_name">
+						<span>山水乐521</span>
+						<ul class="vounteerItem">
+							<li>
+								<p>47</p>
+								<p>全国排名</p>
+							</li>
+							<li>
+								<span></span>
+								<p>4758</p>
+								<p>志愿之心</p>
+								<span class="line"></span>
+							</li>
+							<li>
+								<p>55</p>
+								<p>志愿行动</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="tutorCard_content_2">
+					<div class="tutorCard_content_paragraph">
+						<p class="paragraph_txt"><span id="v_declaration">消费扶贫，让善意长盛不衰<br>请与我一起</span></p>
+						<span class="paragraph_btn" id="editBtn">编辑</span>
+					</div>
+					<div class="tutorCard_content_share">
+						<a id="share" class="tutorCard_content_share_btn">分享给我的朋友</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--志愿者宣言-->
+		<section id="volDeclaration" class="express-area-box">
+			<div class="selInfoDiv">
+				<div class="selInfo">
+					<textarea id="TextArea" name="" rows="" placeholder="输入志愿者宣言"></textarea>
+					<span id="textCount" class='Max_msg'>0/50</span>
+				</div>
+				<p class="sub_btn gray" id="cancel">取消</p>
+				<p class="sub_btn" id="saveModify">保存</p>
+			</div>
+		</section>
+		<!--分享引导-->
+		<div class="guide">
+			<img src="static/images/guide.png" />
+			<div class="sm">
+				<p>点击右上角</p>
+				<p>发送给指定好友，或者分享给朋友圈</p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="libs/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="libs/common.js"></script>
+	<script>
+		var page = 1;
+		//关闭弹层
+		function closeMod() {
+			$("section").animate({
+				"bottom": "-100%"
+			});
+			page = 1;
+		}
+		//显示编辑框
+		$("#editBtn").click(function() {
+			$("#volDeclaration").animate({
+				"bottom": 0
+			});
+			history.pushState({}, null, "");
+			page = 2;
+			var content = $("#v_declaration").text();
+			$("#TextArea").val(content);
+			$("#textCount").text($("#v_declaration").text().length + "/50");
+
+		});
+		//不响应回车换行	
+		$("#TextArea").keydown(function(e) {
+			var key = window.event ? e.keyCode : e.which;
+			if(key.toString() == "13") {
+				return false;
+			}
+		});
+		//字数限制
+		$("#TextArea").on('input propertychange', function() {
+			var nums = 50;
+			words_nums(this, nums);
+		});
+		//保存志愿者宣言
+		$("#saveModify").click(function() {
+			var declaration = $.trim($("#TextArea").val());
+			declaration = declaration.replace(/[\r\n]/g, "");
+			if(declaration.length > 0) {
+				closeMod();
+				$("#v_declaration").text(declaration);
+			} else {
+				promptBox("志愿者宣言不能为空！");
+			}
+		});
+		//取消编辑
+		$("#cancel").click(function() {
+			closeMod();
+			$("#TextArea").blur();
+		});
+		//分享引导弹层
+		$("#share").click(function() {
+			$(".guide").show();
+		});
+		//引导层点击消失
+		$(".guide").click(function() {
+			$(this).hide();
+			location.href="volunteerShare.html";
+		});
+		//返回
+		history.pushState({}, document.title, null);
+		window.addEventListener("popstate", function() {
+			if(page == 1) {
+				history.back();
+			} else {
+				closeMod();
+				$("#TextArea").blur();
+			}
+		});
+	</script>
+</html>

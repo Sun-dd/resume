@@ -1,0 +1,241 @@
+/*地图页样式*/
+
+body,
+html,
+#allmap {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+}
+
+.status {
+	position: absolute;
+	top: 0;
+	background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.25)3%, #FFFFFF 70%);
+	width: 100%;
+	height: .76rem;
+	padding-top: .15rem;
+	text-align: center;
+	z-index: 9999999;
+	box-shadow: 0px 20px 30px rgba(255, 255, 255, 0.25);
+}
+
+.status p {
+	font-size: .14rem;
+	color: #000000;
+	line-height: .27rem;
+}
+
+.status span {
+	color: #FF2427;
+}
+
+.bq {
+	position: absolute;
+	background: rgba(255, 255, 255, 0.9);
+	box-shadow: 0 .08rem .13rem 0 rgba(0, 0, 0, 0.5);
+	border-radius: 10rem;
+	font-size: .12rem;
+	color: #4A4A4A;
+	line-height: .2rem;
+	white-space: nowrap;
+	padding: .05rem;
+	min-width: .8rem;
+}
+
+.bq img {
+	float: left;
+	width: .2rem;
+	height: .2rem;
+	margin-right: .05rem;
+	border-radius: 50%;
+}
+
+.bq span {
+	margin-right: .05rem;
+}
+
+.header {
+	background: rgba(0, 0, 0, 0) url("../images/bj.png") no-repeat scroll 0 0 / 100% auto;
+	height: 1.44rem;
+	padding-top: 0.16rem;
+	position: relative;
+	width: 100%;
+}
+
+.header p {
+	color: #ffffff;
+	font-size: 0.14rem;
+	line-height: 0.27rem;
+	text-align: center;
+	width: 100%;
+}
+
+.header .cityName {
+	font-size: 0.2rem;
+}
+
+.header .tab {
+	margin: 0.16rem auto 0;
+	width: 2.89rem;
+}
+
+.header .tab li {
+	box-sizing: border-box;
+	float: left;
+	height: 0.3rem;
+	width: 50%;
+}
+
+.header .tab li:first-child {
+	border-right: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.header .tab .tab1 {
+	background: rgba(0, 0, 0, 0) url("../images/icon_1.png") no-repeat scroll 50% center / 0.3rem auto;
+}
+
+.header .tab .tab01 {
+	background: rgba(0, 0, 0, 0) url("../images/icon_01.png") no-repeat scroll 50% center / 0.3rem auto;
+}
+
+.header .tab .tab2 {
+	background: rgba(0, 0, 0, 0) url("../images/icon_2.png") no-repeat scroll 50% center / 0.3rem auto;
+}
+
+.header .tab .tab02 {
+	background: rgba(0, 0, 0, 0) url("../images/icon_02.png") no-repeat scroll 50% center / 0.3rem auto;
+}
+
+.triangle-up {
+	border: .1rem solid transparent;
+	border-bottom-color: #fff;
+	bottom: 0;
+	height: 0;
+	left: 28%;
+	position: absolute;
+	width: 0;
+}
+
+.swiper-container {
+	padding-top: .3rem;
+	width: 100%;
+}
+
+.swiper-slide {
+	height: 4.13rem;
+	text-align: center;
+	width: 2.89rem;
+}
+
+.swiper-slide .number {
+	margin-top: .16rem;
+	color: #4A4A4A;
+	font-size: .15rem;
+}
+
+.swiper-slide-con {
+	height: 3.26rem;
+	width: 100%;
+	padding-top: .22rem;
+	background-color: #FFFFFF;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, .24);
+	position: relative;
+}
+
+.swiper-slide-con .title {
+	color: #4A4A4A;
+	font-size: .24rem;
+	margin-bottom: .16rem;
+}
+
+.swiper-slide-con a {
+	display: block;
+	height: .8rem;
+	margin-bottom: .23rem;
+}
+
+.swiper-slide-con a img {
+	vertical-align: top;
+	height: .8rem;
+	width: .8rem;
+	border-radius: 50%;
+}
+
+.swiper-slide-con .content {
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, .24);
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	padding-top: .16rem;
+	height: 1.58rem;
+	background-color: #FF3535;
+}
+
+.swiper-slide-con .content p {
+	color: #ffffff;
+	font-size: 0.18rem;
+}
+
+.swiper-slide-con .content .likeNum {
+	font-size: .17rem;
+	margin: .08rem auto;
+}
+
+.swiper-slide-con .content .like {
+	height: .3rem;
+	margin: .23rem auto 0;
+	width: 0.35rem;
+	background: url(../images/like_x.png)no-repeat;
+	background-size: 100%;
+}
+
+.swiper-slide-con .content .liked {
+	opacity: .6;
+}
+
+.tab_list {
+	display: none;
+}
+
+.tab_list li {
+	width: 25%;
+	height: 1.05rem;
+	text-align: center;
+	margin-top: .3rem;
+	float: left;
+}
+
+.tab_list li .headPic img {
+	height: 0.5rem;
+	width: 0.5rem;
+}
+
+.tab_list li p {
+	font-size: .14rem;
+	color: #4A4A4A;
+	line-height: .24rem;
+}
+
+.tab_list li .likeNums {
+	color: #9B9B9B;
+}
+
+.tab_list li .likeNums img {
+	width: .12rem;
+	height: auto;
+	margin-right: .03rem;
+}
+
+.tab_list .showOver {
+	height: .48rem;
+	line-height: .48rem;
+	border-top: 1px solid #DDDDDD;
+	width: 100%;
+	text-align: center;
+	font-size: .14rem;
+	color: #9B9B9B;
+	position: absolute;
+	bottom: 0;
+}

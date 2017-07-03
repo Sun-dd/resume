@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta name="format-detection" content="telephone=no" />
+		<script>
+			var html = document.getElementsByTagName('html')[0];
+			html.style.fontSize = html.clientWidth / 3.75 + "px";
+		</script>
+		<title>志愿者地图</title>
+		<link rel="stylesheet" type="text/css" href="static/css/Reset.css" />
+		<link rel="stylesheet" href="libs/swiper/swiper.min.css" />
+		<link rel="stylesheet" href="static/css/volunteer.css" />
+	</head>
+	<!-- Swiper -->
+	<div class="header">
+		<p class="cityName">北京</p>
+		<p>全国排名：34</p>
+		<p>此刻有9879890438人与你一起参与志愿者行动</p>
+		<ul class="tab">
+			<li class="tab1 tab01"></li>
+			<li class="tab2"></li>
+		</ul>
+		<div class="triangle-up"></div>
+	</div>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<div class="swiper-slide-con">
+					<p class="title">志愿者</p>
+					<a href="volunteerCard.html"><img src="static/images/headPic.png" /></a>
+					<div class="content">
+						<p>山水乐521</p>
+						<p class="likeNum">获得<span>445669</span>个赞</p>
+						<p>133次志愿者活动</p>
+						<div class="like"></div>
+					</div>
+				</div>
+				<p class="number">第8889个</p>
+			</div>
+			<div class="swiper-slide">
+				<div class="swiper-slide-con">
+					<p class="title">志愿者</p>
+					<a href="volunteerCard.html"><img src="static/images/headPic.png" /></a>
+					<div class="content">
+						<p>山水乐521</p>
+						<p class="likeNum">获得<span>445670</span>个赞</p>
+						<p>133次志愿者活动</p>
+						<div class="like"></div>
+					</div>
+				</div>
+				<p class="number">第8889个</p>
+			</div>
+			<div class="swiper-slide">
+				<div class="swiper-slide-con">
+					<p class="title">志愿者</p>
+					<a href="volunteerCard.html"><img src="static/images/headPic.png" /></a>
+					<div class="content">
+						<p>山水乐521</p>
+						<p class="likeNum">获得<span>445671</span>个赞</p>
+						<p>133次志愿者活动</p>
+						<div class="like"></div>
+					</div>
+				</div>
+				<p class="number">第8889个</p>
+			</div>
+		</div>
+	</div>
+	<!--列表-->
+	<div class="tab_list">
+		<ul>
+			<li>
+				<a href="volunteerCard.html">
+					<p class="headPic"><img src="static/images/headPic.png" /></p>
+				</a>
+				<p>helo-cyj</p>
+				<p class="likeNums"><img src="static/images/like_g.png" />44500</p>
+			</li>
+			<li>
+				<a href="volunteerCard.html">
+					<p class="headPic"><img src="static/images/headPic.png" /></p>
+				</a>
+				<p>helo-cyj</p>
+				<p class="likeNums"><img src="static/images/like_g.png" />44500</p>
+			</li>
+			<li>
+				<a href="volunteerCard.html">
+					<p class="headPic"><img src="static/images/headPic.png" /></p>
+				</a>
+				<p>helo-cyj</p>
+				<p class="likeNums"><img src="static/images/like_g.png" />44500</p>
+			</li>
+			<li>
+				<a href="volunteerCard.html">
+					<p class="headPic"><img src="static/images/headPic.png" /></p>
+				</a>
+				<p>helo-cyj</p>
+				<p class="likeNums"><img src="static/images/like_g.png" />44500</p>
+			</li>
+		</ul>
+		<p class="showOver">已全部展示完毕〜</p>
+	</div>
+	</body>
+	<script type="text/javascript" src="libs/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="libs/swiper/swiper.min.js"></script>
+	<script type="text/javascript" src="libs/common.js"></script>
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			effect: 'coverflow',
+			grabCursor: true,
+			centeredSlides: true,
+			slidesPerView: 1.3,
+			initialSlide: 1,
+			coverflow: {
+				rotate: -30, //slide做3d旋转时Y轴的旋转角度
+				stretch: -20, //每个slide之间的拉伸值
+				depth: 200, //slide的位置深度。值越大z轴距离越远，看起来越小。
+				modifier: 1, //depth和rotate和stretch的倍率
+				slideShadows: false //阴影
+			}
+		});
+		//列表展现形势切换	
+		$(".tab1").click(function() {
+			$(".tab2").removeClass("tab02");
+			$(this).addClass("tab01");
+			$(".triangle-up").css("left", "28%");
+			$(".swiper-container").show();
+			$(".tab_list").hide();
+		});
+		$(".tab2").click(function() {
+			$(".tab01").removeClass("tab01");
+			$(this).addClass("tab02");
+			$(".triangle-up").css("left", "67%");
+			$(".tab_list").show();
+			$(".swiper-container").hide();
+		});
+		//点赞
+		$(".like").click(function() {
+			$(this).toggleClass("liked");
+			var liked = $(this).hasClass("liked");
+			var likeNums = parseInt($(this).siblings(".likeNum").children("span").text());
+			if(liked) {
+				promptBox("点赞成功！");
+				likeNums++;
+				$(this).siblings(".likeNum").children("span").text(likeNums);
+			} else {
+				promptBox("已取消点赞！");
+				likeNums--;
+				$(this).siblings(".likeNum").children("span").text(likeNums);
+			}
+		})
+	</script>
+</html>
